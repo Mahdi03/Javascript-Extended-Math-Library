@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript Extended Math Functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style>
+        body {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+            font-size: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .indent {
+            margin-left: 3em;
+        }
+        
+        pre {
+            overflow-y: hidden;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+        
+        code {
+            background-color: lightgray;
+            color: rgb(75, 73, 73);
+            font-size: 12pt;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        
+        code[id]:hover {
+            cursor: pointer;
+        }
+        
+        code .comment {
+            color: green;
+        }
+        
+        .inlineIMG {
+            height: 20px;
+            width: auto;
+        }
+    </style>
+    <script src="math_extended.js"></script>
+</head>
+
+<body>
+    <h1>Documentation:</h1>
+    <p>
+        &emsp;&emsp;This JavaScript file extends the math library of JavaScript. It allows you to use the same <code>Math</code> object that you are used to, but with added functionality, that way you can solve more complex math. Click on the code snippets
+        to execute them. Simply link this script into your HTML File, and follow the docs below:
+    </p>
+    <div id="docs" class="indent">
+        <h2>MEASURES OF CENTRAL TENDENCY:</h2>
+        <div id="measuresOfCentralTendency" class="indent">
+            <!--Median-->
+            <h2>MEDIAN</h2>
+            <p>Use an array of numbers to find the median (Orders the Array Numerically and finds the middle number, if there is no middle number, it takes the average of the middle 2 numbers)</p>
+            <p>Simply Type:
+                <pre><code id="median">alert(Math.median([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 8</span></code></pre>
+            </p>
+            <!--Range-->
+            <h2>RANGE</h2>
+            <p>Use an array of number to find the range (Subtracts the smallest number from the largest number)</p>
+            <p>Simply Type:
+                <pre><code id="range">alert(Math.range([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 88</span></code></pre>
+            </p>
+            <!--Arithmetic Mean-->
+            <h2>ARITHMETIC MEAN:</h2>
+            <p>Use an array of numbers to find the Arithmetic Mean (Adds up all the numbers and divides by how many there are)</p>
+            <p>Simply Type:
+                <pre><code id="aMean">alert(Math.aMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 20.285714285714284...</span></code></pre>
+            </p>
+            <!--Geomteric Mean-->
+            <h2>GEOMETRIC MEAN:</h2>
+            <p>Use an array of numbers to find the Geometric Mean (Multiplies all of the numbers and takes the nth root)</p>
+            <p>Simply Type:
+                <pre><code id="gMean">alert(Math.gMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 10.296268469976324...</span></code></pre>
+            </p>
+            <!--Harmonic Mean-->
+            <h2>HARMONIC MEAN:</h2>
+            <p>Use an array of numbers to find the Harmonic Mean (Divides the amount of numbers total but the sum of the reciprocals of each number)</p>
+            <p>Simple Type:
+                <pre><code id="hMean">alert(Math.hMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90]);) <span class="comment">//Should return 6.433260393873087</span></code></pre>
+            </p>
+            <!--Standard Deviation-->
+            <h2>STANDARD DEVIATION:</h2>
+            <p>Use an array of numbers to find the Standard Deviation (The Average Difference From The Mean, How Each Value Varies)</p>
+            <p>Simply Type:
+                <pre><code id="stddev">alert(Math.stddev([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 25.716666556447595</span></code></pre>
+            </p>
+        </div>
+        <!--Nth Root-->
+        <h2>NTH ROOT:</h2>
+        <p>Use <code>n</code> and the <code>base</code> of the radical to find the nth root: <img id="rootIMG" class="inlineIMG" src="https://lh3.googleusercontent.com/mAcwS76Ph5ViSLi_kh3Oh2ZEIf5rbjOU8ov5XdZr83LZnMXZ-tyiwyINMVARsgUKoA=w170" /></p>
+        <p>Simply type:
+            <pre><code id="nthRoot">alert(Math.nthRoot(16, 123454321)); <span class="comment">//Should return the 16th Root of 123454321 (3.2041965129271887...)</span></code></pre>
+        </p>
+        <!--Combinatorics-->
+        <h2>COMBINATORICS:</h2>
+        <div id="combinatorics" class="indent">
+            <!--Factorials-->
+            <h2>FACTORIALS:</h2>
+            <p>To get the factorial of a number, make sure the number is small, or else the browser will freeze up<br /> (When 16! = 16 &times; 15 &times; 14 &times; 13 &times; 12 &times; 11 &times; 10 &times; 9 &times; 8 &times; 7 &times; 6 &times; 5 &times;
+                4 &times; 3 &times; 2 &times; 1)</p>
+            <p>Simply type:
+                <pre><code id="factorial">Math.factorial(16); <span class="comment">//Should return 20922789888000</span></code></pre>
+            </p>
+            <!--Permutations-->
+            <h2>PERMUTATIONS:</h2>
+            <p>To use permutations in the form nPr, make sure again that n is greater than or equal to r</p>
+            <p>Simply type:
+                <pre><code id="permutation">Math.pick(5, 2); <span class="comment">//Should return 20</span></code></pre>
+            </p>
+            <!--Combinations-->
+            <h2>COMBINATIONS:</h2>
+            <p>To use combinations in the form nCr, make sure that n is greater than or equal to r</p>
+            <p>Simply type:
+                <pre><code id="combination">Math.choose(5, 2); <span class="comment">//Should return 10</span></code></pre>
+            </p>
+        </div>
+        <!--Decimals-->
+        <h2>DECIMALS:</h2>
+        <div id="decimals" class="indent">
+            <!--Percents-->
+            <h2>PERCENTS:</h2>
+            <p>To convert a number to a percent, use <code>Math.percent(number);</code></p>
+            <p>Simply Type:
+                <pre><code id="percent">Math.percent(30); <span class="comment">//Should return 0.3</span></code></pre>
+            </p>
+            <!--Rounding-->
+            <h2>ROUNDING:</h2>
+            <p>Although there already exists <code>Math.round(); Math.ceil(); Math.floor();</code>, <code>Math.rnd();</code> will round to a specified amount of places. (If not specified, its default value is <code>3</code>)</p>
+            <p>Simply Type:
+                <pre><code id="rnd">Math.rnd(Math.E, 4); <span class="comment">//Should return 2.7183</span></code></pre>
+            </p>
+            <!--Significant Figures (Scientific)-->
+            <h2>SIGNIFICANT FIGURES (SCIENTIFIC):</h2>
+            <p>To return a number with a certain amount of significant figures, simply use <code>Math.sigFigs();</code></p>
+            <p>Simply Type:
+                <pre><code id="sigFigs">alert(Math.sigFigs(Math.PI, 15)); <span class="comment">//Should return 3.142</span></code></pre>
+            </p>
+        </div>
+        <!--Trigonometry-->
+        <h2>TRIGONOMETRY:</h2>
+        <div id="trig" class="indent">
+            <!--Degrees-->
+            <h2>To calculate in DEGREES:</h2>
+            <div id="degrees" class="indent">
+                <p>In order to use Trigonometry in which the input is degrees, use the <code>Math.deg(func, input);</code> syntax.</p>
+                <ul>
+                    <code>func</code> can be any of the strings below:
+                    <li>
+                        For sine, use <code>"sin"</code><br />Example:
+                        <pre><code id="degSin">Math.deg("sin", 180); <span class="comment">//Should return 0</span></code></pre>
+                    </li>
+                    <li>For cosine, use <code>"cos"</code><br />Example:
+                        <pre><code id="degCos">Math.deg("cos", 60); <span class="comment">//Should return 0.5</span></code></pre></li>
+                    <li>For tangent, use <code>"tan"</code><br />Example:
+                        <pre><code id="degTan">Math.deg("tan", 60); <span class="comment">//Should return 1.732</span></code></pre></li>
+                    <li>For cosecant, use <code>"csc"</code><br />Example:
+                        <pre><code id="degCsc">Math.deg("csc", 60); <span class="comment">//Should return 1.115</span></code></pre></li>
+                    <li>For secant, use <code>"sec"</code><br />Example:
+                        <pre><code id="degSec">Math.deg("sec", 60); <span class="comment">//Should return 2</span></code></pre></li>
+                    <li>For cotangent, use <code>"cot"</code><br />Example:
+                        <pre><code id="degCot">Math.deg("cot", 60); <span class="comment">//Should return 0.577</span></code></pre></li>
+                    <li>For sine inverse, use <code>"sinInv"</code><br />Example:
+                        <pre><code id="degSinInv">Math.deg("sinInv", 1); <span class="comment">//Should return 90</span></code></pre></li>
+                    <li>For cosine inverse, use <code>"cosInv"</code><br />Example:
+                        <pre><code id="degCosInv">Math.deg("cosInv", 1); <span class="comment">//Should return 0</span></code></pre></li>
+                    <li>For tangent inverse, use <code>"tanInv"</code><br />Example:
+                        <pre><code id="degTanInv">Math.deg("tanInv", 1); <span class="comment">//Should return 45</span></code></pre></li>
+                    <li>For cosecant inverse, use <code>"cscInv"</code><br />Example:
+                        <pre><code id="degCscInv">Math.deg("cscInv", 1); <span class="comment">//Should return 90</span></code></pre></li>
+                    <li>For secant inverse, use <code>"secInv"</code><br />Example:
+                        <pre><code id="degSecInv">Math.deg("secInv", 1); <span class="comment">//Should return 0</span></code></pre></li>
+                    <li>For cotangent inverse, use <code>"cotInv"</code><br />Example:
+                        <pre><code id="degCotInv">Math.deg("cotInv", 1); <span class="comment">//Should return 45</span></code></pre></li>
+                </ul>
+            </div>
+            <!--Radians-->
+            <h2>To calculate in RADIANS:</h2>
+            <div id="radians" class="indent">
+                <p>In order to use Trigonometry in which the input is radians, use the <code>Math.rad(func, input);</code> syntax.</p>
+                <ul>
+                    <code>func</code> can be any of the strings below:
+                    <li>
+                        For sine, use <code>"sin"</code><br />Example:
+                        <pre><code id="radSin">Math.rad("sin", &pi;); <span class="comment">//Should return 0</span></code></pre>
+                    </li>
+                    <li>For cosine, use <code>"cos"</code><br />Example:
+                        <pre><code id="radCos">Math.rad("cos", &pi;/3); <span class="comment">//Should return 0.5</span></code></pre></li>
+                    <li>For tangent, use <code>"tan"</code><br />Example:
+                        <pre><code id="radTan">Math.rad("tan", &pi;/3); <span class="comment">//Should return 1.732</span></code></pre></li>
+                    <li>For cosecant, use <code>"csc"</code><br />Example:
+                        <pre><code id="radCsc">Math.rad("csc", &pi;/3); <span class="comment">//Should return 1.115</span></code></pre></li>
+                    <li>For secant, use <code>"sec"</code><br />Example:
+                        <pre><code id="radSec">Math.rad("sec", &pi;/3); <span class="comment">//Should return 2</span></code></pre></li>
+                    <li>For cotangent, use <code>"cot"</code><br />Example:
+                        <pre><code id="radCot">Math.rad("cot", &pi;/3); <span class="comment">//Should return 0.577</span></code></pre></li>
+                    <li>For sine inverse, use <code>"sinInv"</code><br />Example:
+                        <pre><code id="radSinInv">Math.rad("sinInv", 1); <span class="comment">//Should return 90</span></code></pre></li>
+                    <li>For cosine inverse, use <code>"cosInv"</code><br />Example:
+                        <pre><code id="radCosInv">Math.rad("cosInv", 1); <span class="comment">//Should return 0</span></code></pre></li>
+                    <li>For tangent inverse, use <code>"tanInv"</code><br />Example:
+                        <pre><code id="radTanInv">Math.rad("tanInv", 1); <span class="comment">//Should return 45</span></code></pre></li>
+                    <li>For cosecant inverse, use <code>"cscInv"</code><br />Example:
+                        <pre><code id="radCscInv">Math.rad("cscInv", 1); <span class="comment">//Should return 90</span></code></pre></li>
+                    <li>For secant inverse, use <code>"secInv"</code><br />Example:
+                        <pre><code id="radSecInv">Math.rad("secInv", 1); <span class="comment">//Should return 0</span></code></pre></li>
+                    <li>For cotangent inverse, use <code>"cotInv"</code><br />Example:
+                        <pre><code id="radCotInv">Math.rad("cotInv", 1); <span class="comment">//Should return 45</span></code></pre></li>
+                </ul>
+            </div>
+        </div>
+        <!--Any Base Logarithms-->
+        <h2>ANY BASE LOGARITHMS:</h2>
+        <p>To get a Logarithm in any base, use the <code>base</code> and the <code>input</code> value.</p>
+        <p>Simply type:
+            <pre><code id="nthBaseLog">Math.nthBaseLog(13, Math.pow(13, 15)); <span class="comment">//Should return 15</span></code></pre>
+        </p>
+        <script>
+            //Median Example
+            document.querySelector("#median").onclick = function() {
+                alert("The Median is: " + String(Math.median([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            //Range Example
+            document.querySelector("#range").onclick = function() {
+                alert("The Range is: " + String(Math.range([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            //Arithmetic Mean Example
+            document.querySelector("#aMean").onclick = function() {
+                alert("The Arithmetic Mean is: " + String(Math.aMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            //Geomteric Mean Example
+            document.querySelector("#gMean").onclick = function() {
+                alert("The Geometric Mean is: " + String(Math.gMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            //Harmonic Mean Example
+            document.querySelector("#hMean").onclick = function() {
+                alert("The Harmonic Mean is: " + String(Math.hMean([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            document.querySelector("#stddev").onclick = function() {
+                alert("The Standard Deviation is: " + String(Math.stddev([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
+            };
+            //Nth Root Example
+            document.querySelector("#nthRoot").onclick = function() {
+                alert("The 16th Root of 123454321 is: " + String(Math.nthRoot(16, 123454321)));
+            };
+            //Factorial Example
+            document.querySelector("#factorial").onclick = function() {
+                alert("16! = " + String(Math.factorial(16)));
+            };
+            //Permutation Example
+            document.querySelector("#permutation").onclick = function() {
+                alert("5P2 = " + String(Math.pick(5, 2)));
+            };
+            //Combination Example
+            document.querySelector("#combination").onclick = function() {
+                alert("5C2 = " + String(Math.choose(5, 2)));
+            };
+            //Percent Example
+            document.querySelector("#percent").onclick = function() {
+                alert("30% = " + String(Math.percent(30)));
+            };
+            //Rounding Example
+            document.querySelector("#rnd").onclick = function() {
+                alert("e rounded at 4 places: " + String(Math.rnd(Math.E, 4)));
+            };
+            //Significant Figures
+            document.querySelector("#sigFigs").onclick = function() {
+                alert("pi with 4 Significant Figures: " + String(Math.sigFigs(Math.PI, 4)));
+            };
+            //Degrees Trigonometry
+            document.querySelector("#degSin").onclick = function() {
+                alert("sin(180) = " + String(Math.deg("sin", 180)));
+            };
+            document.querySelector("#degCos").onclick = function() {
+                alert("cos(60) = " + String(Math.deg("cos", 60)));
+            };
+            document.querySelector("#degTan").onclick = function() {
+                alert("tan(60) = " + String(Math.deg("tan", 60)));
+            };
+            document.querySelector("#degCsc").onclick = function() {
+                alert("csc(60) = " + String(Math.deg("csc", 60)));
+            };
+            document.querySelector("#degSec").onclick = function() {
+                alert("sec(60) = " + String(Math.deg("sec", 60)));
+            };
+            document.querySelector("#degCot").onclick = function() {
+                alert("cot(60) = " + String(Math.deg("cot", 60)));
+            };
+            document.querySelector("#degSinInv").onclick = function() {
+                alert("sinInv(1) = " + String(Math.deg("sinInv", 1)));
+            };
+            document.querySelector("#degCosInv").onclick = function() {
+                alert("cosInv(1) = " + String(Math.deg("cosInv", 1)));
+            };
+            document.querySelector("#degTanInv").onclick = function() {
+                alert("tanInv(1) = " + String(Math.deg("tanInv", 1)));
+            };
+            document.querySelector("#degCscInv").onclick = function() {
+                alert("cscInv(1) = " + String(Math.deg("cscInv", 1)));
+            };
+            document.querySelector("#degSecInv").onclick = function() {
+                alert("secInv(1) = " + String(Math.deg("secInv", 1)));
+            };
+            document.querySelector("#degCotInv").onclick = function() {
+                alert("tanInv(1) = " + String(Math.deg("tanInv", 1)));
+            };
+            //Radians Trigonometry
+            document.querySelector("#radSin").onclick = function() {
+                alert("sin(π) = " + String(Math.rad("sin", Math.PI)));
+            };
+            document.querySelector("#radCos").onclick = function() {
+                alert("cos(π/3) = " + String(Math.rad("cos", Math.PI / 3)));
+            };
+            document.querySelector("#radTan").onclick = function() {
+                alert("tan(π/3) = " + String(Math.rad("tan", Math.PI / 3)));
+            };
+            document.querySelector("#radCsc").onclick = function() {
+                alert("csc(π/3) = " + String(Math.rad("csc", Math.PI / 3)));
+            };
+            document.querySelector("#radSec").onclick = function() {
+                alert("sec(π/3) = " + String(Math.rad("sec", Math.PI / 3)));
+            };
+            document.querySelector("#radCot").onclick = function() {
+                alert("cot(π/3) = " + String(Math.rad("cot", Math.PI / 3)));
+            };
+            document.querySelector("#radSinInv").onclick = function() {
+                alert("sinInv(1) = " + String(Math.rad("sinInv", 1)));
+            };
+            document.querySelector("#radCosInv").onclick = function() {
+                alert("cosInv(1) = " + String(Math.rad("cosInv", 1)));
+            };
+            document.querySelector("#radTanInv").onclick = function() {
+                alert("tanInv(1) = " + String(Math.rad("tanInv", 1)));
+            };
+            document.querySelector("#radCscInv").onclick = function() {
+                alert("cscInv(1) = " + String(Math.rad("cscInv", 1)));
+            };
+            document.querySelector("#radSecInv").onclick = function() {
+                alert("secInv(1) = " + String(Math.rad("secInv", 1)));
+            };
+            document.querySelector("#radCotInv").onclick = function() {
+                alert("tanInv(1) = " + String(Math.rad("tanInv", 1)));
+            };
+            //Nth Base Log Example
+            document.querySelector("#nthBaseLog").onclick = function() {
+                alert("log13(13^15) = " + String(Math.nthBaseLog(13, Math.pow(13, 15))));
+            };
+        </script>
+    </div>
+</body>
+
+</html>
