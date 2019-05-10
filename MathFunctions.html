@@ -235,7 +235,9 @@
             <script>
                 var userInputScript = document.querySelector("#userInputScript");
                 var userOutputScript = document.querySelector("#userOutputScript");
-                userOutputScript.innerHTML = "alert('hi');";
+                userInputScript.onkeyup = function() {
+                    userOutputScript.innerHTML = String(userInputScript.innerHTML);
+                };
             </script>
         </div>
         <script>
