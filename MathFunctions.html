@@ -235,7 +235,7 @@
             <script>
                 var userInputScript = document.querySelector("#userInputScript");
                 var userOutputScript = document.querySelector("#userOutputScript");
-                userInputScript.onkeyup = function() {
+                userInputScript.oninput = function() {
                     userOutputScript.innerHTML = String(userInputScript.innerHTML);
                 };
             </script>
