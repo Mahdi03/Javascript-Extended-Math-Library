@@ -229,6 +229,15 @@
         <p>Simply type:
             <pre><code id="nthBaseLog">Math.nthBaseLog(13, Math.pow(13, 15)); <span class="comment">//Should return 15</span></code></pre>
         </p>
+        <div id="playLab">
+            <textarea id="userInputScript"></textarea>
+            <script id="userOutputScript"></script>
+            <script>
+                var userInputScript = document.querySelector("#userInputScript");
+                var userOutputScript = document.querySelector("#userOutputScript");
+                userOutputScript.innerHTML = "alert('hi');";
+            </script>
+        </div>
         <script>
             //Median Example
             document.querySelector("#median").onclick = function() {
