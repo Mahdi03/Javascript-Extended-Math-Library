@@ -231,11 +231,13 @@
         </p>
         <div id="playLab">
             <textarea id="userInputScript"></textarea>
+            <button id="userInputButton">Test</button>
             <script id="userOutputScript"></script>
             <script>
                 var userInputScript = document.querySelector("#userInputScript");
                 var userOutputScript = document.querySelector("#userOutputScript");
-                userInputScript.oninput = function() {
+                var userInputButton = document.querySelector("#userInputButton");
+                userInputButton.onclick = function() {
                     userOutputScript.innerHTML = String(userInputScript.innerHTML);
                 };
             </script>
