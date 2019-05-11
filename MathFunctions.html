@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <style>
+        /*font-family: 'Source Code Pro', monospace;*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
         body {
             width: 70%;
             margin: 0 auto;
@@ -34,11 +37,13 @@
             background-color: lightgray;
             color: rgb(75, 73, 73);
             font-size: 12pt;
+            font-family: 'Source Code Pro', monospace;
             padding: 3px;
             border-radius: 5px;
         }
         
-        code[id]:hover {
+        code[id]:hover,
+        button:hover {
             cursor: pointer;
         }
         
@@ -50,6 +55,32 @@
             height: 20px;
             width: auto;
         }
+        
+        #playLab {
+            text-align: center;
+            margin: 25px auto;
+        }
+        
+        #playLab textarea {
+            width: 100%;
+            resize: none;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 11pt;
+            background-color: lightgray;
+            color: rgb(75, 73, 73);
+        }
+        
+        #playLab textarea,
+        #playLab button {
+            border-radius: 25px;
+            padding: 15px;
+        }
+        
+        #playLab button {
+            border: none;
+            background-color: lightgray;
+            color: rgb(75, 73, 73);
+        }
     </style>
     <script src="math_extended.js"></script>
 </head>
@@ -58,7 +89,7 @@
     <h1>Documentation:</h1>
     <p>
         &emsp;&emsp;This JavaScript file extends the math library of JavaScript. It allows you to use the same <code>Math</code> object that you are used to, but with added functionality, that way you can solve more complex math. Click on the code snippets
-        to execute them. In order to test this library yourself, open the console and have at it! Simply link this script into your HTML File, and follow the docs below:
+        to execute them. In order to test this library yourself, open the console and have at it! Or you can scroll to the bottom to <a href="#playLab">try it out</a> for yourself. Simply link this script into your HTML File, and follow the docs below:
     </p>
     <div id="docs" class="indent">
         <h2>MEASURES OF CENTRAL TENDENCY:</h2>
@@ -230,7 +261,9 @@
             <pre><code id="nthBaseLog">Math.nthBaseLog(13, Math.pow(13, 15)); <span class="comment">//Should return 15</span></code></pre>
         </p>
         <div id="playLab">
-            <textarea id="userInputScript"></textarea>
+            <h2>Try it yourself:</h2>
+            <textarea id="userInputScript" rows="15" placeholder="//Type your JavaScript here"></textarea>
+            <br />
             <button id="userInputButton">Test</button>
             <script id="userOutputScript" type="noRunJS"></script>
             <script>
