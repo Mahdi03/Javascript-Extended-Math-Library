@@ -232,13 +232,14 @@
         <div id="playLab">
             <textarea id="userInputScript"></textarea>
             <button id="userInputButton">Test</button>
-            <script id="userOutputScript"></script>
+            <script id="userOutputScript" type="noRunJS"></script>
             <script>
                 var userInputScript = document.querySelector("#userInputScript");
                 var userOutputScript = document.querySelector("#userOutputScript");
                 var userInputButton = document.querySelector("#userInputButton");
                 userInputButton.onclick = function() {
-                    alert(userInputScript.innerHTML);
+                    userOutputScript.innerHTML = userInputScript.value;
+                    eval(userOutputScript.innerHTML);
                 };
             </script>
         </div>
