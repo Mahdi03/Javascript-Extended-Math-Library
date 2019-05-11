@@ -22,6 +22,16 @@
             text-align: center;
         }
         
+        #tableOfContents {
+            border: 2px solid black;
+            width: 50%;
+            margin: 25px auto;
+        }
+        
+        #tableOfContents h2 {
+            text-align: center;
+        }
+        
         .indent {
             margin-left: 3em;
         }
@@ -81,6 +91,37 @@
             background-color: lightgray;
             color: rgb(75, 73, 73);
         }
+        
+        #scrollTopButton {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Fixed/sticky position */
+            bottom: 20px;
+            /* Place the button at the bottom of the page */
+            right: 30px;
+            /* Place the button 30px from the right */
+            z-index: 99;
+            /* Make sure it does not overlap */
+            border: none;
+            /* Remove borders */
+            outline: none;
+            /* Remove outline */
+            background-color: darkgray;
+            /* Set a background color */
+            color: white;
+            /* Text color */
+            padding: 15px;
+            /* Some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+            font-size: 18px;
+            /* Increase font size */
+        }
+        
+        #scrollTopButton:hover {
+            cursor: pointer;
+        }
     </style>
     <script src="math_extended.js"></script>
 </head>
@@ -91,6 +132,79 @@
         &emsp;&emsp;This JavaScript file extends the math library of JavaScript. It allows you to use the same <code>Math</code> object that you are used to, but with added functionality, that way you can solve more complex math. Click on the code snippets
         to execute them. In order to test this library yourself, open the console and have at it! Or you can scroll to the bottom to <a href="#playLab">try it out</a> for yourself. Simply link this script into your HTML File, and follow the docs below:
     </p>
+    <div id="tableOfContents">
+        <h2>Table Of Contents:</h2>
+        <p>Test any of these features yourself in our <a href="#playLab">Play Lab</a>.</p>
+        <ol>
+            <li>
+                <a href="#measuresOfCentralTendency">Measures Of Central Tendency</a>:
+                <ol type="a">
+                    <li><a href="#median">Median</a></li>
+                    <li><a href="#range">Range</a></li>
+                    <li><a href="#aMean">Arithmetic Mean</a></li>
+                    <li><a href="#gMean">Geometric Mean</a></li>
+                    <li><a href="#hMean">Harmonic Mean</a></li>
+                    <li><a href="#stddev">Standard Deviation</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#combinatorics">Combinatorics</a>
+                <ol type="a">
+                    <li><a href="#factorial">Factorial</a></li>
+                    <li><a href="#permutation">Permutations</a></li>
+                    <li><a href="#combination">Combinations</a></li>
+                </ol>
+            </li>
+            <li><a href="#decimals">Decimals:</a>
+                <ol type="a">
+                    <li><a href="#percent">Percents</a></li>
+                    <li><a href="#rnd">Rounding</a></li>
+                    <li><a href="#sigFigs">Significant Figures</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#trig">Trigonometry</a>:
+                <ol type="a">
+                    <li>
+                        <a href="#degrees">Degrees</a>
+                        <ol type="i">
+                            <li><a href="#degSin">Sine</a></li>
+                            <li><a href="#degCos">Cosine</a></li>
+                            <li><a href="#degTan">Tangent</a></li>
+                            <li><a href="#degCsc">Cosecant</a></li>
+                            <li><a href="#degSec">Secant</a></li>
+                            <li><a href="#degCot">Cotangent</a></li>
+                            <li><a href="#degSinInv">Sine Inverse</a></li>
+                            <li><a href="#degCosInv">Cosine Inverse</a></li>
+                            <li><a href="#degTanInv">Tangent Inverse</a></li>
+                            <li><a href="#degCscInv">Cosecant Inverse</a></li>
+                            <li><a href="#degSecInv">Secant Inverse</a></li>
+                            <li><a href="#degCotInv">Cotangent Inverse</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#radians">Radians</a>
+                        <ol type="i">
+                            <li><a href="#radSin">Sine</a></li>
+                            <li><a href="#radCos">Cosine</a></li>
+                            <li><a href="#radTan">Tangent</a></li>
+                            <li><a href="#radCsc">Cosecant</a></li>
+                            <li><a href="#radSec">Secant</a></li>
+                            <li><a href="#radCot">Cotangent</a></li>
+                            <li><a href="#radSinInv">Sine Inverse</a></li>
+                            <li><a href="#radCosInv">Cosine Inverse</a></li>
+                            <li><a href="#radTanInv">Tangent Inverse</a></li>
+                            <li><a href="#radCscInv">Cosecant Inverse</a></li>
+                            <li><a href="#radSecInv">Secant Inverse</a></li>
+                            <li><a href="#radCotInv">Cotangent Inverse</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li><a href="#nthRoot">Nth Root</a></li>
+            <li><a href="#nthBaseLog">Nth Base Logarithms</a></li>
+        </ol>
+    </div>
     <div id="docs" class="indent">
         <h2>MEASURES OF CENTRAL TENDENCY:</h2>
         <div id="measuresOfCentralTendency" class="indent">
@@ -131,12 +245,6 @@
                 <pre><code id="stddev">alert(Math.stddev([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])); <span class="comment">//Should return 25.716666556447595</span></code></pre>
             </p>
         </div>
-        <!--Nth Root-->
-        <h2>NTH ROOT:</h2>
-        <p>Use <code>n</code> and the <code>base</code> of the radical to find the nth root: <img id="rootIMG" class="inlineIMG" src="https://lh3.googleusercontent.com/mAcwS76Ph5ViSLi_kh3Oh2ZEIf5rbjOU8ov5XdZr83LZnMXZ-tyiwyINMVARsgUKoA=w170" /></p>
-        <p>Simply type:
-            <pre><code id="nthRoot">alert(Math.nthRoot(16, 123454321)); <span class="comment">//Should return the 16th Root of 123454321 (3.2041965129271887...)</span></code></pre>
-        </p>
         <!--Combinatorics-->
         <h2>COMBINATORICS:</h2>
         <div id="combinatorics" class="indent">
@@ -254,6 +362,12 @@
                 </ul>
             </div>
         </div>
+        <!--Nth Root-->
+        <h2>NTH ROOT:</h2>
+        <p>Use <code>n</code> and the <code>base</code> of the radical to find the nth root: <img id="rootIMG" class="inlineIMG" src="https://lh3.googleusercontent.com/mAcwS76Ph5ViSLi_kh3Oh2ZEIf5rbjOU8ov5XdZr83LZnMXZ-tyiwyINMVARsgUKoA=w170" /></p>
+        <p>Simply type:
+            <pre><code id="nthRoot">alert(Math.nthRoot(16, 123454321)); <span class="comment">//Should return the 16th Root of 123454321 (3.2041965129271887...)</span></code></pre>
+        </p>
         <!--Any Base Logarithms-->
         <h2>ANY BASE LOGARITHMS:</h2>
         <p>To get a Logarithm in any base, use the <code>base</code> and the <code>input</code> value.</p>
@@ -276,7 +390,17 @@
                 };
             </script>
         </div>
+        <button id="scrollTopButton" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">Back to top</button>
         <script>
+            //Scroll Back To Top Button
+            var scrollTopButton = document.querySelector("#scrollTopButton");
+            window.onscroll = function() {
+                if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                    scrollTopButton.style.display = "block";
+                } else {
+                    scrollTopButton.style.display = "none";
+                }
+            };
             //Median Example
             document.querySelector("#median").onclick = function() {
                 alert("The Median is: " + String(Math.median([2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 60, 30, 45, 90])));
