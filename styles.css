@@ -76,9 +76,20 @@
             color: green;
         }
         
-        .inlineIMG {
-            height: 20px;
-            width: auto;
+        #measuresOfCentralTendency,
+        #combinatorics,
+        #decimals,
+        #trig,
+        #degrees,
+        #radians,
+        #nthRoot,
+        #nthBaseLog {
+            display: none;
+            -webkit-transition: display 1s ease-in-out;
+            -moz-transition: display 1s ease-in-out;
+            -ms-transition: display 1s ease-in-out;
+            -o-transition: display 1s ease-in-out;
+            transition: display 1s ease-in-out;
         }
         
         #playLab {
