@@ -89,7 +89,7 @@
         </ol>
     </div>
     <div id="docs" class="indent">
-        <h2>MEASURES OF CENTRAL TENDENCY:</h2>
+        <div><span class="toggleButton" id="measuresOfCentralTendencyToggleButton" onclick="toggleDiv('#measuresOfCentralTendency');">&plus;</span><h2>MEASURES OF CENTRAL TENDENCY:</h2></div>
         <div id="measuresOfCentralTendency" class="indent">
             <!--Median-->
             <h3>MEDIAN:</h3>
@@ -129,7 +129,7 @@
             </p>
         </div>
         <!--Combinatorics-->
-        <h2>COMBINATORICS:</h2>
+        <div><span class="toggleButton" id="combinatoricsToggleButton" onclick="toggleDiv('#combinatorics');">&plus;</span><h2>COMBINATORICS:</h2></div>
         <div id="combinatorics" class="indent">
             <!--Factorials-->
             <h3>FACTORIALS:</h3>
@@ -152,7 +152,7 @@
             </p>
         </div>
         <!--Decimals-->
-        <h2>DECIMALS:</h2>
+        <div><span class="toggleButton" id="decimalsToggleButton" onclick="toggleDiv('#decimals');">&plus;</span><h2>DECIMALS:</h2></div>
         <div id="decimals" class="indent">
             <!--Percents-->
             <h3>PERCENTS:</h3>
@@ -174,10 +174,10 @@
             </p>
         </div>
         <!--Trigonometry-->
-        <h2>TRIGONOMETRY:</h2>
+        <div><span class="toggleButton" id="trigToggleButton" onclick="toggleDiv('#trig');">&plus;</span><h2>TRIGONOMETRY:</h2></div>
         <div id="trig" class="indent">
             <!--Degrees-->
-            <h3>To calculate in DEGREES:</h3>
+            <div><span class="toggleButton" id="degreesToggleButton" onclick="toggleDiv('#degrees');">&plus;</span><h3>To calculate in DEGREES:</h3></div>
             <div id="degrees" class="indent">
                 <p>In order to use Trigonometry in which the input is degrees, use the <code>Math.deg(func, input);</code> syntax.</p>
                 <ul>
@@ -211,7 +211,7 @@
                 </ul>
             </div>
             <!--Radians-->
-            <h3>To calculate in RADIANS:</h3>
+            <div><span class="toggleButton" id="radiansToggleButton" onclick="toggleDiv('#radians');">&plus;</span><h3>To calculate in RADIANS:</h3></div>
             <div id="radians" class="indent">
                 <p>In order to use Trigonometry in which the input is radians, use the <code>Math.rad(func, input);</code> syntax.</p>
                 <ul>
@@ -246,17 +246,21 @@
             </div>
         </div>
         <!--Nth Root-->
-        <h2>NTH ROOT:</h2>
-        <p>Use <code>n</code> and the <code>base</code> of the radical to find the nth root: <sup><var>n</var></sup><sqrt><var>x</var></sqrt><!--<img id="rootIMG" class="inlineIMG" src="https://lh3.googleusercontent.com/mAcwS76Ph5ViSLi_kh3Oh2ZEIf5rbjOU8ov5XdZr83LZnMXZ-tyiwyINMVARsgUKoA=w170" />--></p>
+        <div><span class="toggleButton" id="nthRootDivToggleButton" onclick="toggleDiv('#nthRootDiv');">&plus;</span><h2>NTH ROOT:</h2></div>
+        <div id="nthRootDiv">
+        <p>Use <code>n</code> and the <code>base</code> of the radical to find the nth root: <sup><var>n</var></sup><sqrt><var>x</var></sqrt></p>
         <p>Simply type:
             <pre><code id="nthRoot">alert(Math.nthRoot(16, 123454321)); <span class="comment">//Should return the 16th Root of 123454321 (3.2041965129271887...)</span></code></pre>
         </p>
+        </div>
         <!--Any Base Logarithms-->
-        <h2>ANY BASE LOGARITHMS:</h2>
+<span class="toggleButton" id="nthBaseLogDivToggleButton" onclick="toggleDiv('#nthBaseLogDiv');">&plus;</span><h2>ANY BASE LOGARITHMS:</h2></div>
+        <div id="nthBaseLogDiv">
         <p>To get a Logarithm in any base, use the <code>base</code> and the <code>input</code> value.</p>
         <p>Simply type:
             <pre><code id="nthBaseLog">Math.nthBaseLog(13, Math.pow(13, 15)); <span class="comment">//Should return 15</span></code></pre>
         </p>
+        </div>
         <div id="playLab">
             <h2>Try it yourself:</h2>
             <textarea id="userInputScript" rows="15" placeholder="//Type your JavaScript here"></textarea>
@@ -419,6 +423,17 @@
             document.querySelector("#nthBaseLog").onclick = function() {
                 alert("log13(13^15) = " + String(Math.nthBaseLog(13, Math.pow(13, 15))));
             };
+            //A Toggle Function to hide a lot of the information and to not overpopulate the page
+            function toggleDiv(id) {
+                var element = document.querySelector(id);
+                if (element.style.display === "block") {
+                    element.style.display = "none";
+                    document.querySelector(id + "ToggleButton").innerHTML = "&plus;";
+                } else {
+                    element.style.display = "block";
+                    document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
+            }
+}
         </script>
     </div>
 </body>
