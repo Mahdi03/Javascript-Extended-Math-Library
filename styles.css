@@ -1,8 +1,15 @@
-/*font-family: 'Source Code Pro', monospace;*/
         
+        /*Font For Unit Titles (<h2>)*/
+        @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+        /*Font For Titles of Sections (<h3>)*/
+        @import url('https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap');
+        /*Font For Titles of Thms and Rules (<h5>)*/
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+        /*font-family: 'Source Code Pro', monospace;*/
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
         body {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
             padding: 20px;
             font-size: 20px;
@@ -11,7 +18,25 @@
         h1 {
             text-align: center;
         }
+        h2 {
+            font-size: 25pt;
+            font-family: 'Fredoka One', cursive;
+            /*color: orange;*/
+        }
         
+        h3 {
+            font-size: 30pt;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        h5 {
+            font-size: 18pt;
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
         #tableOfContents {
             border: 2px solid black;
             width: 50%;
