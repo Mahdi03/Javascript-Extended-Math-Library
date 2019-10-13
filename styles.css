@@ -82,8 +82,8 @@
         #trig,
         #degrees,
         #radians,
-        #nthRoot,
-        #nthBaseLog {
+        #nthRootDiv,
+        #nthBaseLogDiv {
             display: none;
             -webkit-transition: display 1s ease-in-out;
             -moz-transition: display 1s ease-in-out;
@@ -91,7 +91,27 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
-        
+        .toggleButton {
+            border: 1px solid grey;
+            display: inline-table;
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            float: left;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            vertical-align: center;
+            border-radius: 25px;
+        }
+        .toggleButton:hover {
+            cursor: pointer;
+        }
         #playLab {
             text-align: center;
             margin: 25px auto;
