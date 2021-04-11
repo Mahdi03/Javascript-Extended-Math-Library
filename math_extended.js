@@ -414,6 +414,9 @@ class Vector {
     toString() {
         return `[${this.x}, ${this.y}, ${this.z}]`;
     }
+    get[Symbol.toStringTag]() {
+        return "Vector";
+    }
 }
 Math.__proto__.vector = function(vector) {
     return new Vector(vector);
