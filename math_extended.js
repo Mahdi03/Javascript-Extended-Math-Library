@@ -303,6 +303,173 @@ Math.__proto__.nthBaseLog = function(base, input) {
     }
 };
 
+//Vectors
+class Vector {
+    constructor(vectorArray) {
+        //dimensions, x, y, z, magnitude, theta
+        if (!Array.isArray(vectorArray)) {
+            //throw new Error(this + "Vector constructor requires an array input in the form of [x], [x, y], or [x, y, z]");
+        }
+        this.dimensions = vectorArray.length;
+        /*
+        if (![1, 2, 3].includes(constructorObject.dimensions)) {
+            throw new Error(this + "Vector has illegal dimensions, use either 1, 2, or 3");
+        }*/
+        this.x = vectorArray[0];
+        if (this.dimensions == 1) {
+            this.y = 0;
+            this.z = 0;
+        } else if (this.dimensions == 2) {
+            this.y = vectorArray[1];
+            this.z = 0;
+        } else if (this.dimensions == 3) {
+            this.y = vectorArray[1];
+            this.z = vectorArray[2];
+        }
+
+        this.magnitude = Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2));
+    }
+    static add(v1, v2) {
+        var x1 = v1.x;
+        var y1 = v1.y;
+        var z1 = v1.z;
+
+        var x2 = v2.x;
+        var y2 = v2.y;
+        var z2 = v2.z;
+
+        var x3 = x1 + x2;
+        var y3 = y1 + y2;
+        var z3 = z1 + z2;
+        return new Vector([x3, y3, z3]);
+    }
+    static angle(v, degOrRad) {
+        if (degOrRad === "deg") {
+            if (v.dimensions == 2) {
+                return { theta: Math.deg("tanInv", v.y / v.x) };
+            } else if (v.dimensions == 3) {
+                return {
+                    alpha: Math.deg("cosInv", v.x / v.magnitude),
+                    beta: Math.deg("cosInv", v.y / v.magnitude),
+                    gamma: Math.deg("cosInv", v.z / v.magnitude)
+                };
+            }
+        } else if (degOrRad === "rad") {
+            if (v.dimensions == 2) {
+                return { theta: Math.rad("tanInv", v.y / v.x) };
+            } else if (v.dimensions == 3) {
+                return {
+                    alpha: Math.rad("cosInv", v.x / v.magnitude),
+                    beta: Math.rad("cosInv", v.y / v.magnitude),
+                    gamma: Math.rad("cosInv", v.z / v.magnitude)
+                };
+            }
+        }
+    }
+    static cross(v1, v2) {
+        var x1 = v1.x;
+        var y1 = v1.y;
+        var z1 = v1.z;
+
+        var x2 = v2.x;
+        var y2 = v2.y;
+        var z2 = v2.z;
+
+        var x3 = (y1 * z2) - (z1 * y2);
+        var y3 = ((x1 * z2) - (z1 * x2)) / -1;
+        var z3 = (x1 * y2) - (y1 * x2);
+        return new Vector([x3, y3, z3]);
+    }
+    static dot(v1, v2) {
+        return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
+    }
+    static magnitude(v) {
+        return v.magnitude;
+    }
+    static scale(vector, factor) {
+        var x1 = vector.x;
+        var y1 = vector.y;
+        var z1 = vector.z;
+
+        var x2 = x1 * factor;
+        var y2 = y1 * factor;
+        var z2 = z1 * factor;
+
+        return new Vector([x2, y2, z2]);
+    }
+    static subtract(v1, v2) {
+        var x1 = v1.x;
+        var y1 = v1.y;
+        var z1 = v1.z;
+
+        var x2 = v2.x;
+        var y2 = v2.y;
+        var z2 = v2.z;
+
+        var x3 = x1 - x2;
+        var y3 = y1 - y2;
+        var z3 = z1 - z2;
+        return new Vector([x3, y3, z3]);
+    }
+}
+Math.__proto__.vector = function(vector) {
+    return new Vector(vector);
+};
+Math.vector.__proto__.angle = function(v1, degOrRad) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    return Vector.angle(v1, degOrRad);
+};
+Math.vector.__proto__.add = function(v1, v2) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    if (!(v2.constructor.name === Vector.name) && Array.isArray(v2)) {
+        v2 = new Vector(v2);
+    }
+    return Vector.add(v1, v2);
+};
+Math.vector.__proto__.cross = function(v1, v2) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    if (!(v2.constructor.name === Vector.name) && Array.isArray(v2)) {
+        v2 = new Vector(v2);
+    }
+    return Vector.cross(v1, v2);
+
+};
+Math.vector.__proto__.dot = function(v1, v2) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    if (!(v2.constructor.name === Vector.name) && Array.isArray(v2)) {
+        v2 = new Vector(v2);
+    }
+    return Vector.dot(v1, v2);
+};
+Math.vector.__proto__.magnitude = function(v1) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    return Vector.magnitude(v1);
+};
+Math.vector.__proto__.scale = function(v1, scale) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    return Vector.scale(v1, scale);
+};
+Math.vector.__proto__.subtract = function(v1, v2) {
+    if (!(v1.constructor.name === Vector.name) && Array.isArray(v1)) {
+        v1 = new Vector(v1);
+    }
+    if (!(v2.constructor.name === Vector.name) && Array.isArray(v2)) {
+        v2 = new Vector(v2);
+    }
+    return Vector.subtract(v1, v2);
+};
 //Areas of 2-D Figures
 Math.__proto__.area = function(shape, length, width, height) {
     if (shape === "rect" || shape === "square") {
