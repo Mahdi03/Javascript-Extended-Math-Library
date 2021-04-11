@@ -411,6 +411,9 @@ class Vector {
         var z3 = z1 - z2;
         return new Vector([x3, y3, z3]);
     }
+    toString() {
+        return `[${this.x}, ${this.y}, ${this.z}]`;
+    }
 }
 Math.__proto__.vector = function(vector) {
     return new Vector(vector);
